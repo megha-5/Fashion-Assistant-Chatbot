@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maeve - Where Confidence Meets Couture</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    .script-font {
+      font-family: 'Dancing Script', cursive;
+    }
+    .elegant-font {
+      font-family: 'Inter', sans-serif;
+    }
+    .chat-icon {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .chat-icon:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 4px 8px rgba(236, 72, 153, 0.3));
+    }
+    #chatbot-container {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 400px;
+      height: 600px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      z-index: 9999;
+    }
+    #close-chat {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #ec4899;
+    }
+
+    /* Keyframes for fade+slide */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeUp { animation: fadeUp 1.2s ease-out forwards; }
+    .animate-fadeUp-delay {
+      animation: fadeUp 1.2s ease-out forwards;
+      animation-delay: 0.6s;
+    }
+  </style>
+</head>
+<body class="elegant-font">
+  <!-- Background Image -->
+  <div class="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+       style="background-image: url('360_F_296198884_iJvPPEL8ACqJETMHn6bs4cNmHv54MGMv.jpg');">
+    
+    <!-- Overlay text -->
+    <div class="text-center">
+      <!-- Brand -->
+      <h1 class="script-font text-7xl md:text-8xl font-bold text-black mb-4 opacity-0 animate-fadeUp">
+        Maeve
+      </h1>
+
+      <!-- Tagline -->
+      <p class="elegant-font text-lg md:text-xl text-pink-500 italic mb-10 opacity-0 animate-fadeUp-delay">
+        Where confidence meets couture.
+      </p>
+
+      <!-- Chat Icon -->
+      <div class="chat-icon inline-block opacity-0 animate-fadeUp-delay" style="animation-delay: 1.2s;" onclick="toggleChat()">
+        <img src="original-839a9a2a679b62ec44f80405f24cca70.webp" 
+             alt="Chat with Maeve" class="w-20 h-20 mx-auto">
+      </div>
+    </div>
+  </div>
+
+  <!-- Chatbot Iframe -->
+  <div id="chatbot-container">
+    <span id="close-chat">&times;</span>
+    <iframe 
+      src="https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/12/19/20250312191114-JFXB0A17.json"
+      width="100%" 
+      height="100%" 
+      style="border:none;">
+    </iframe>
+  </div>
+
+  <script>
+    const chatbot = document.getElementById("chatbot-container");
+    const closeBtn = document.getElementById("close-chat");
+
+    function toggleChat() {
+      chatbot.style.display = chatbot.style.display === "none" ? "block" : "none";
+    }
+
+    // Redirect to thankyou.html when the ❌ is clicked
+    closeBtn.addEventListener("click", () => {
+      window.location.href = "thankyou.html";
+    });
+  </script>
+</body>
+</html>

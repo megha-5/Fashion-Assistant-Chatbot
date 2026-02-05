@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - Maeve</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    .brand-font { font-family: 'Great Vibes', cursive; }
+    .tagline-font { font-family: 'Playfair Display', serif; }
+
+    @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+    .animate-fadeUp { animation: fadeUp 1.2s ease-out forwards; }
+    .animate-fadeUp-delay { animation: fadeUp 1.2s ease-out forwards; animation-delay: 0.6s; }
+
+    .btn-home {
+      background-color: #ec4899;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 500;
+      margin-top: 1.5rem;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-home:hover { background-color: #f43f85; transform: scale(1.05); }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen text-center"
+      style="background-image: url('360_F_444440214_qzfvtJhGcLe1FHJk8saQBHhnkdE5P3AT.webp'); background-size: cover; background-position: center;">
+
+  <div class="bg-white/70 p-8 rounded-xl opacity-0 animate-fadeUp">
+    <h1 class="brand-font text-6xl md:text-7xl font-bold text-pink-600 mb-4">
+      Thank You 💖
+    </h1>
+    <p class="tagline-font text-lg md:text-xl text-gray-700 animate-fadeUp-delay">
+      Thank you for choosing us to design your outfit for you.
+    </p>
+    <a href="Maeve.html" class="btn-home">
+      Back to Home
+    </a>
+  </div>
+
+  <!-- Optional: send a visit log to Spring Boot backend -->
+  <script>
+    fetch("http://localhost:8080/api/chat/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content: "User reached Thank You page" })
+    }).catch(err => console.warn("Backend not reachable:", err));
+  </script>
+</body>
+</html>
